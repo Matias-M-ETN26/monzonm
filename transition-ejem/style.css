@@ -1,0 +1,56 @@
+body{
+    background-color: white;
+}
+body::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 0px;
+    transition: all 2s;
+}
+body::-webkit-scrollbar:hover{
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    transition: all 2s;
+}
+.caja{
+    background-color: red;
+    height: 1000px;
+    width: 600px;
+    animation: elpepe 10s infinite ease-in-out;
+}
+@keyframes elpepe{
+    0%{
+        background-color: red;
+    }
+    10%{
+        background-color: orange;
+    }
+    30%{
+        background-color: yellow;
+    }
+    40%{
+        background-color: lightgreen;
+    }
+    50%{
+        background-color: green;
+    }
+    60%{
+        background-color: blue;
+    }
+    70%{
+        background-color: lightblue;
+    }
+    80%{
+        background-color: purple;
+    }
+    90%{
+        background-color: pink;
+    }
+    100%{
+        background-color: white;
+    }
+}

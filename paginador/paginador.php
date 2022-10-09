@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="conteiner-principal">
+    <div class="conteiner-principal" id="conteiner-principal">
         <div class="fila-principal">
             <div class="columna">ID</div>
             <div class="columna">Nombre Categoria</div>
@@ -32,25 +32,25 @@
     <div class="paginador">
         <ul class="pagination">
             <li class="page-item disabled">
-                <a class="page-link" href="#">&laquo;</a>
+                <a class="page-link" href="javascript:paginador();">&laquo;</a>
             </li>
             <li class="page-item active">
-                <a class="page-link" href="#">1</a>
+                <a class="page-link" href="javascript:paginador(1);">1</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">2</a>
+                <a class="page-link" href="javascript:paginador(2);">2</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">3</a>
+                <a class="page-link" href="javascript:paginador(3);">3</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">4</a>
+                <a class="page-link" href="javascript:paginador(4);">4</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">5</a>
+                <a class="page-link" href="javascript:paginador(5);">5</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">&raquo;</a>
+                <a class="page-link" href="paginador();">&raquo;</a>
             </li>
         </ul>
     </div>

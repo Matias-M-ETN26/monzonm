@@ -25,12 +25,12 @@
                 <div class="columna"><?php echo $categoria["id"] ?></div>
                 <div class="columna"><?php echo $categoria["nombre"] ?></div>
                 <div class="columna"><?php echo $categoria["fecha_alta"] ?></div>
-                <div class="columna"><?php echo $categoria["fecha_baja"] ?></div>
+                <div class="columna"><?php echo ($categoria["fecha_baja"] == null ? 'null' : $categoria["feche_baja"]) ?></div>
             </div>
         <?php } ?>
     </div>
     <div class="paginador">
-        <ul class="pagination">
+        <ul class="pagination" id="paginador">
             <li class="page-item disabled">
                 <a class="page-link" href="javascript:paginador();">&laquo;</a>
             </li>

@@ -15,11 +15,13 @@
     }
     $categorias = mysqli_fetch_all($result2,MYSQLI_ASSOC);
     $cant_pags = ceil($cant_filas/cant_reg);
+    /* js */
     if(isset($_GET["pag"])){
         $datos = [
             "categorias" => $categorias,
             "cantPags" => $cant_pags,
-            "pagActual" => $_GET["pag"]
+            "pagActual" => $_GET["pag"],
+            "cant_reg"=> cant_reg
         ];
         echo json_encode($datos);
     }

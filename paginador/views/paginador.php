@@ -34,21 +34,11 @@
             <li class="page-item disabled">
                 <a class="page-link" href="javascript:paginador();">&laquo;</a>
             </li>
-            <li class="page-item active">
-                <a class="page-link" href="javascript:paginador(1);">1</a>
+            <?php for($i=1;$i <= 5;$i++){?>
+            <li class="page-item <?php echo($i == $pagActual?"active":"");?>">
+                <a class="page-link" href="javascript:paginador(<?php echo $i?>);"><?php echo $i?></a>
             </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(2);">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(3);">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(4);">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(5);">5</a>
-            </li>
+            <?php } ?>
             <li class="page-item">
                 <a class="page-link" href="paginador();">&raquo;</a>
             </li>

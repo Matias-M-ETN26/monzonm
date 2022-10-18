@@ -1,6 +1,6 @@
 <?php
     require "config.php";
-    $query = "SELECT * FROM categorias";
+    $query = "SELECT * FROM mascotas";
     $result =   mysqli_query($con,$query);
     if(!$result){
         die("Error de la 1° consulta");
@@ -13,15 +13,16 @@
     if(!$result2){
         die("Error de la 2° consulta");
     }
-    $categorias = mysqli_fetch_all($result2,MYSQLI_ASSOC);
+    $mascotas = mysqli_fetch_all($result2,MYSQLI_ASSOC);
     $cant_pags = ceil($cant_filas/cant_reg);
     /* js */
     if(isset($_GET["pag"])){
         $datos = [
-            "categorias" => $categorias,
+            "mascotas" => $mascotas,
             "cantPags" => $cant_pags,
             "pagActual" => $_GET["pag"],
-            "cant_reg"=> cant_reg
+            "cant_reg"=> cant_reg,
+            "cant_pestañas"=> pestañas
         ];
         echo json_encode($datos);
     }

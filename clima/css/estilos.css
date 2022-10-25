@@ -8,6 +8,7 @@ a{
 }
 .contenedor-principal{
     color: white;
+    top: 25vh;
     position: relative;
     margin: 0 auto;
     width: 50vw;
@@ -83,6 +84,6 @@ a{
     background-color: #303134;
 }
 .img-clima{
-    width: 75px;
+    width: 70px;
     height: auto;
 }

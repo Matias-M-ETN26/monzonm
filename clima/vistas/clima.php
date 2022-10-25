@@ -30,29 +30,27 @@
                     <div class="clima-info l-gris" id="clima-info">Soleado</div>
                 </div>
             </div>
-            <div class="dias-contenedor">
+            <div class="dias-contenedor" id="dias-contenedor">
                 <?php $arrayDias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
                 $hoy = getdate();
+                $num = 0;
                 for ($i = $hoy["wday"]; $i < ($hoy["wday"] + 5); $i++) { ?>
-                    <a href="javascript:clima('<?php echo $i ?>');">
+                    <a href="javascript:clima(<?php echo $num; ?>);">
                         <div class="dias <?php if ($i == $hoy["wday"]) {
-                                                    echo ("seleccionado");
-                                                } ?>">
-                            <div class="fecha"><?php echo $arrayDias[$i];
-                                                        if ($i == $hoy["wday"]) {
-                                                            echo ("(Hoy)");
-                                                        } ?></div>
+                                                echo ("seleccionado");
+                                            } ?>">
+                            <div class="fecha"><?php echo $arrayDias[$i];?></div>
                             <img src="//ssl.gstatic.com/onebox/weather/64/partly_cloudy.png">
                             <div class="temp">
                                 <div class="temp-max">24°</div>
                                 <div class="temp-min">18°</div>
                             </div>
                         </div>
-                    </a> <?php } ?>
+                    </a> <?php $num++;} ?>
             </div>
         </div>
         <script>
-            clima('<?php echo $hoy["wday"]?>');
+            clima(0);
         </script>
     </body>
 

@@ -16,42 +16,42 @@
     <div class="conteiner-principal" id="conteiner-principal">
         <div class="fila-principal">
             <div class="columna">ID</div>
-            <div class="columna">Nombre Categoria</div>
-            <div class="columna">Fecha Alta</div>
-            <div class="columna">Fecha Baja</div>
+            <div class="columna">Nombre</div>
+            <div class="columna">Edad</div>
+            <div class="columna">Sexo</div>
         </div>
-        <?php foreach ($categorias as $categoria) { ?>
+        <?php foreach ($mascotas as $mascota) { ?>
             <div class="fila-secundaria">
-                <div class="columna"><?php echo $categoria["id"] ?></div>
-                <div class="columna"><?php echo $categoria["nombre"] ?></div>
-                <div class="columna"><?php echo $categoria["fecha_alta"] ?></div>
-                <div class="columna"><?php echo $categoria["fecha_baja"] ?></div>
+                <div class="columna"><?php echo $mascota["id"] ?></div>
+                <div class="columna"><?php echo $mascota["nombre"] ?></div>
+                <div class="columna"><?php echo $mascota["edad"] ?></div>
+                <div class="columna"><?php echo $mascota["sexo"] ?></div>
             </div>
         <?php } ?>
     </div>
     <div class="paginador">
-        <ul class="pagination">
+        <ul class="pagination pagination-sm" id="paginador">
+            <?php if (($pagActual - pestañas) > 1) { ?>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:paginador(1);">1</a>
+                </li>
+            <?php } ?>
             <li class="page-item disabled">
-                <a class="page-link" href="javascript:paginador(a);">&laquo;</a>
+                <a class="page-link" href="<?php echo $pagActual - 1 ?>">&laquo;</a>
             </li>
-            <li class="page-item active">
-                <a class="page-link" href="javascript:paginador(1);">1</a>
-            </li>
+            <?php for ($i = 1; $i <= pestañas; $i++) { ?>
+                <li class="page-item <?php echo ($i == $pagActual ? "active" : ""); ?>">
+                    <a class="page-link" href="javascript:paginador(<?php echo $i ?>);"><?php echo $i ?></a>
+                </li>
+            <?php } ?>
             <li class="page-item">
-                <a class="page-link" href="javascript:paginador(2);">2</a>
+                <a class="page-link" href="javascript:paginador(<?php echo $pagActual + 1 ?>);">&raquo;</a>
             </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(3);">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(4);">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(5);">5</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="javascript:paginador(b);">&raquo;</a>
-            </li>
+            <?php if (($pagActual + pestañas) < $cant_pags) { ?>
+                <li class="page-item">
+                    <a class="page-link" href="javascript:paginador(<?php $cant_pags ?>);">Final</a>
+                </li>
+            <?php } ?>
         </ul>
     </div>
 </body>

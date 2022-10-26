@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:linear-gradient(120deg, #6ac0fa, #fbff00);
+    background-size: 100vw 100vh;
+    height: 100%;
+    width: 100%;
+}
+
+header{
+    display:flex;
+    height: 80px;
+    justify-content: space-between;
+    background-color: rgba(96, 91, 91, 0.636);
+    padding: 10px;
+    align-items:center;
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    margin: auto;
+ 
+}
+    .logo h2{
+    font-family:'Roboto', sans-serif;
+    font-size: 40px;
+    color: white;
+    text-shadow: 0.1em 0.1em rgba(225, 209, 209, 0.378);
+    margin: auto;
+}
+.logo img{
+    height: 60px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin: auto;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bts-modal:checked~.modal {
+   opacity: 1;
+   visibility: visible;
+}
+.contenedor {
+   width: 380px;
+   height: 530px;
+   margin: auto;
+   background: rgb(255, 255, 255);
+   box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+   transition: all 500ms ease;
+   position: relative;
+   border-radius: 25px;
+   transform: translateY(-30%);
+}
+#bts-modal:checked~.modal .contenedor {
+   transform: translateY(0%);
+}
+.contenedor label {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   color: rgb(0, 0, 0);
+   font-size: 16px;
+   cursor: pointer;
+}
+#bts-modal {
+   display: none;
+}
+.lbl-modal {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: #25516eab;
+   padding: 10px 28px;
+   border-radius: 19px;
+   cursor: pointer;
+   font-size: 20px;
+   color: white;
+   
+   
+}
+#im2 {
+   text-align: center;
+   width: 100px;
+   transform: translate(138px, 16px);
+}
+.usuari input{
+   padding: 15px;
+   border-radius: 15px;
+   margin-bottom: 7px;
+   border: none;
+   outline: none;
+   background: #25516e;
+   color: #000000;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   width: 70%;
+   height: 30px;
+   transform: translate(60px, 40px);
+   font-size: 15px;
+}
+.fecha{
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color: #25516e;
+   transform: translate(63px, 50px);
+
+}
+.genero{
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color: #25516e;
+   transform: translate(63px, 85px);
+}
+.nacimiento input{
+   padding: 8px;
+   border-radius: 15px;
+   border: none;
+   outline: none;
+   background: #25516e;
+   color:  #6d7377;
+   transform: translate(40px, 35px);
+   width: 80%;
+   height: 30px;
+}
+.radio input{
+   display: none;
+}
+.radio label{
+   color: #6d7377;
+   background-color: #25516e;
+   padding: 4px 10px 4px 45px;
+   display: inline-block;
+   position: relative;
+   font-size: 15px;
+   border-radius: 10px;
+   cursor: pointer;
+   transform: translate(35px);
+   
+}
+.radio label::before{
+   content: "";
+   width: 10px;
+   height: 10px;
+   display: inline-block;
+   background: none;
+   border:  3px solid white;
+   border-radius: 50%;
+   position: absolute;
+   left: 17px;
+}
+.radio input:checked+ label{
+       padding: 5px 15px;
+       background: #00b7ff;
+       border-radius: 10px;
+       color: white;
+}
+.radio input:checked+ label::before{
+   display: none;
+}
+
+#registro{
+   transform: translate(100px, 120px);
+}
+input[type="submit"] {
+    width: 50%;
+    height: 50px;
+    border: 2px solid;
+    background: #25516e;
+    border-radius: 25px;
+    font-size: 24px;
+    color: azure;
+    cursor: pointer;
+    transform: translate(100px, 100px);
+}
+input[type="submit"]:hover {
+    border-color: #00b7ff;
+}

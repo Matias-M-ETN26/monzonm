@@ -1,3 +1,3 @@
-<?php 
-    header("location:paginador.php")
+<?php
+    header("Location paginador.php");
 ?>

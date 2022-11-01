@@ -12,10 +12,30 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script src="js/clima.js"></script>
+        <script>clima(0,0);</script>
     </head>
 
     <body>
-        <script>clima(0);</script>
+        <div class="lugares-contenedor">
+            <a href="javascript:clima(0,0)">
+                <div class="lugares">AR, Buenos Aires</div>
+            </a>
+            <a href="javascript:clima(0,1)">
+                <div class="lugares">RU, Yerbogachën</div>
+            </a>
+            <a href="javascript:clima(0,2)">
+                <div class="lugares">US, Washington D.C.</div>
+            </a>
+            <a href="javascript:clima(0,3)">
+                <div class="lugares">ES, Madrid</div>
+            </a>
+            <a href="javascript:clima(0,4)">
+                <div class="lugares">PE, Lima</div>
+            </a>
+            <a href="javascript:clima(0,5)">
+                <div class="lugares">EG, Cairo</div>
+            </a>
+        </div>
         <div class="contenedor-principal" id="contenedor-principal">
             <div class="dia-seleccionado-contenedor" id="dia-seleccionado">
                 <div class="clima">

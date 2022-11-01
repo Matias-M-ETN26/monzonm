@@ -1,18 +1,40 @@
-function clima(dia) {
+function clima(dia,lugar) {
     $('#dia-seleccionado').hide();
+    $('#lugares-contenedor').hide();
     $('#dias-contenedor').hide();
     $('#cargando').show();
-    var latitud = -34.6140489;
-    var longitud = -58.4078955;
-    const apiPersonal = "8ead1a015aabf195b5e511574525951c"
+    const lugares = ["-34.61315 -58.37723","61.52401 105.318756","38.9041 -77.0171","40.4165 -3.70256","-12.04318 -77.02824","30.06263 31.24967"];
+    /* 
+    argentina 
+    var latitud =  -34.61315;
+    var longitud =  -58.37723;
+    rusia
+    var latitud =  61.52401;
+    var longitud =  105.318756;
+    eeuu
+    var latitud =   38.9041;
+    var longitud =  -77.0171;
+    españa
+    var latitud =   40.4165;
+    var longitud =  -3.70256;
+    peru
+    var latitud = -12.04318;
+    var longitud = -77.02824;
+    egipto
+    var latitud = 30.06263;
+    var longitud = 31.24967;
+    */
+    var latitud = lugares[lugar].split(" ")[0];
+    var longitud = lugares[lugar].split(" ")[1];
+    const apiPersonal = "8ead1a015aabf195b5e511574525951c";
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitud + '&lon=' + longitud + '&appid=' + apiPersonal + '&units=metric&lang=sp',
             dataType: 'json',
             success: function (info) {
-                console.log(info)
                 /* Declaro variables */
                 //HTML
                 var img = $("#img-seleccionado");
+                var icono = "";
                 var temp_promedio = $("#temp-promedio");
                 var celsius = $("#celsius");
                 var precipitaciones = $("#precipitaciones");
@@ -55,10 +77,10 @@ function clima(dia) {
                 humedad_promedio = Math.round(humedad_promedio / cantRegDiavariable); //Promedio de la humedad de hoy
                 viento_promedioMs = Math.round(viento_promedioMs / cantRegDiavariable); //Promedio del viento en m/s de hoy
                 viento_promedioKmh = Math.round(viento_promedioKmh / cantRegDiavariable); //Promedio del viento en km/h de hoy
-
+                icono = (info["list"][diaVariableRegis[0]]["weather"][0]["icon"]).substr(0, (info["list"][diaVariableRegis[0]]["weather"][0]["icon"]).length - 1);
                 /* Reemplazo datos en HTML*/
                 /* Datos en dia-seleccionado-contenedor */
-                img.html(`<img class="img-clima" src="http://openweathermap.org/img/wn/${info["list"][diaVariableRegis[0]]["weather"][0]["icon"]}@2x.png"></img>`);
+                img.html(`<img class="img-clima" src="img/iconos/${icono}d.png"></img>`);
                 temp_promedio.html(temp_promedioRes);
                 celsius.html("°C");
                 precipitaciones.html(`Prob. de precipitaciones: ${precipitacion_promedio}%`);
@@ -70,7 +92,7 @@ function clima(dia) {
                 /* Datos en dia-contenedor */
                 for (i = 0; i < 5; i++) {
                     diasContenido += '<div class="dias-contenedor" id="dias-contenedor">';
-                    diasContenido += `<a href="javascript:clima(${i});">`;
+                    diasContenido += `<a href="javascript:clima(${i},${lugar});">`;
                     diasContenido += `<div class="dias ${i == dia ? "seleccionado" : ""}">`;
                     diasContenido += `<div class="fecha">${arrayDias[diaActual]}</div>`;
                     diasContenido += `</div>`;
@@ -80,6 +102,7 @@ function clima(dia) {
                 }
                 dia_contenedor.html(diasContenido);
                 $('#dia-seleccionado').show();
+                $('#lugares-contenedor').show();
                 $('#dias-contenedor').show();
                 $('#cargando').hide();
             }

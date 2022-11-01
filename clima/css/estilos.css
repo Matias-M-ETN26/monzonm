@@ -34,6 +34,7 @@ a{
 .alinear{
     vertical-align: top;
     display: table-cell;
+    flex-direction: column;
 }
 .temp-promedio{
     font-size: 48px;

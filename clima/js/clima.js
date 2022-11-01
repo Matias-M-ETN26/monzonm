@@ -31,7 +31,7 @@ function clima(dia) {
                 var precipitacion_promedio = 0;
                 var humedad_promedio = 0;
                 var viento_promedioMs = 0;
-                var viento_promedioKms = 0;
+                var viento_promedioKmh = 0;
                 /* Averiguo los datos de hoy */
 
                 var diaVariable = parseInt(info["list"][0]["dt_txt"].split(" ")[0].split("-")[2]) + dia;
@@ -48,13 +48,13 @@ function clima(dia) {
                     precipitacion_promedio += info["list"][diaVariableRegis[i]]["pop"];
                     humedad_promedio += info["list"][diaVariableRegis[i]]["main"]["humidity"];
                     viento_promedioMs += info["list"][diaVariableRegis[i]]["wind"]["speed"];
-                    viento_promedioKms += (info["list"][diaVariableRegis[i]]["wind"]["speed"]) * (18 / 5);
+                    viento_promedioKmh += (info["list"][diaVariableRegis[i]]["wind"]["speed"]) * (18 / 5);
                 }
                 temp_promedioRes = Math.round(temp_promedioRes / cantRegDiavariable); //Promedio de la temperatura de hoy
                 precipitacion_promedio = Math.round((precipitacion_promedio / cantRegDiavariable) * 100); //Promedio de la prob. de precipitaciones de hoy
                 humedad_promedio = Math.round(humedad_promedio / cantRegDiavariable); //Promedio de la humedad de hoy
                 viento_promedioMs = Math.round(viento_promedioMs / cantRegDiavariable); //Promedio del viento en m/s de hoy
-                viento_promedioKms = Math.round(viento_promedioKms / cantRegDiavariable); //Promedio del viento en km/h de hoy
+                viento_promedioKmh = Math.round(viento_promedioKmh / cantRegDiavariable); //Promedio del viento en km/h de hoy
 
                 /* Reemplazo datos en HTML*/
                 /* Datos en dia-seleccionado-contenedor */
@@ -63,12 +63,12 @@ function clima(dia) {
                 celsius.html("°C");
                 precipitaciones.html(`Prob. de precipitaciones: ${precipitacion_promedio}%`);
                 humedad.html(`Humedad: ${humedad_promedio}%`);
-                viento.html(`Viento: a ${viento_promedioMs} m/s o ${viento_promedioKms} km/h`);
-                localidad.html(info["city"]["name"]);
-                dia_semana.html(arrayDias[diaActual]);
+                viento.html(`Viento: a ${viento_promedioMs} m/s o ${viento_promedioKmh} km/h`);
+                localidad.html(`${info["city"]["country"]}, ${info["city"]["name"]}`);
+                dia_semana.html(arrayDias[diaActual + dia]);
                 clima_info.html(info["list"][diaVariableRegis[0]]["weather"][0]["description"][0].toUpperCase() + info["list"][diaVariableRegis[0]]["weather"][0]["description"].substring(1));
                 /* Datos en dia-contenedor */
-                for (i = 0; i < 4; i++) {
+                for (i = 0; i < 5; i++) {
                     diasContenido += '<div class="dias-contenedor" id="dias-contenedor">';
                     diasContenido += `<a href="javascript:clima(${i});">`;
                     diasContenido += `<div class="dias ${i == dia ? "seleccionado" : ""}">`;

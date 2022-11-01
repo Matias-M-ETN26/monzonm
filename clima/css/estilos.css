@@ -79,6 +79,7 @@ a{
 }
 .dias:hover{
     background-color: #303134;
+    color: white;
 }
 .seleccionado{
     background-color: #303134;
@@ -86,4 +87,7 @@ a{
 .img-clima{
     width: 70px;
     height: auto;
+}
+.cargando{
+    text-align: center;
 }

@@ -5,53 +5,47 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="css/estilos.css" rel="stylesheet">
         <title>Clima</title>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script src="js/clima.js"></script>
     </head>
 
     <body>
         <div class="contenedor-principal">
-            <div class="dia-seleccionado-contenedor">
+            <div class="dia-seleccionado-contenedor" id="dia-seleccionado">
                 <div class="clima">
-                    <div class="alinear" id="img-seleccionado"><img src="//ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"></div>
-                    <div class="temp-promedio alinear" id="temp-promedio">21</div>
-                    <div class="celsius alinear">°C</div>
+                    <div class="alinear" id="img-seleccionado"></div>
+                    <div class="temp-promedio alinear" id="temp-promedio"></div>
+                    <div class="celsius alinear" id="celsius"></div>
                     <div class="info-clima alinear">
-                        <div class="precipitaciones" id="precipitaciones">Prob. de precipitaciones: 1%</div>
-                        <div class="humedad" id="humedad">Humedad: 73%</div>
-                        <div class="viento" id="viento">Viento: a 3 m/s o 11 km/h</div>
+                        <div class="precipitaciones" id="precipitaciones"></div>
+                        <div class="humedad" id="humedad"></div>
+                        <div class="viento" id="viento"></div>
                     </div>
                 </div>
                 <div class="info">
-                    <div class="localidad" id="localidad">Buenos Aires</div>
-                    <div class="dia l-gris" id="dia-semana">Lunes</div>
-                    <div class="clima-info l-gris" id="clima-info">Soleado</div>
+                    <div class="localidad" id="localidad"></div>
+                    <div class="dia l-gris" id="dia-semana"></div>
+                    <div class="clima-info l-gris" id="clima-info"></div>
                 </div>
             </div>
             <div class="dias-contenedor" id="dias-contenedor">
-                <?php $arrayDias = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado');
-                $hoy = getdate();
-                $num = 0;
-                for ($i = $hoy["wday"]; $i < ($hoy["wday"] + 5); $i++) { ?>
-                    <a href="javascript:clima(<?php echo $num; ?>);">
-                        <div class="dias <?php if ($i == $hoy["wday"]) {
-                                                echo ("seleccionado");
-                                            } ?>">
-                            <div class="fecha"><?php echo $arrayDias[$i];?></div>
-                            <img src="//ssl.gstatic.com/onebox/weather/64/partly_cloudy.png">
-                            <div class="temp">
-                                <div class="temp-max">24°</div>
-                                <div class="temp-min">18°</div>
-                            </div>
-                        </div>
-                    </a> <?php $num++;} ?>
+
             </div>
         </div>
+        <div class="cargando" id="cargando">
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
         <script>
             clima(0);
         </script>
+
     </body>
 
     </html>

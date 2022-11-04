@@ -6,6 +6,17 @@ a{
     color: white;
     text-decoration: none;
 }
+.lugares-contenedor{
+    color: white;
+    top: 17vh;
+    position: relative;
+    margin: 0 auto;
+    width: 60vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+
 .contenedor-principal{
     color: white;
     top: 25vh;
@@ -29,11 +40,12 @@ a{
     justify-content: space-between;
 }
 .celsius{
-    padding-top: 5px;
+    padding-top: 10px;
 }
 .alinear{
     vertical-align: top;
     display: table-cell;
+    flex-direction: column;
 }
 .temp-promedio{
     font-size: 48px;
@@ -72,12 +84,12 @@ a{
     justify-content: space-evenly;
 }
 
-.dias{
+.dias,.lugares{
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
     display: table-cell;
 }
-.dias:hover{
+.dias:hover,.lugares:hover{
     background-color: #303134;
     color: white;
 }

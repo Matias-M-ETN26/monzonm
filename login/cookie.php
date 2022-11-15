@@ -1,11 +1,16 @@
-
 <?php
-    $checked = ((isset($_GET["recordar"]) && $_GET["recordar"]))? "checked":"";
-    if(isset($_GET["recordar"]) && $_GET["recordar"]){
-        setcookie("user",$_GET["user"]);
-        setcookie("pass",$_GET["pass"]);
-        setcookie("recordar",$_GET["recordar"]);
-    }
+if (isset($_GET["recordar"])) {
+    setcookie('user', $_GET['user'], time() + 60);
+    setcookie('pass', $_GET['pass'], time() + 60);
+    setcookie('recordar', $_GET['recordar'], time() + 60);
+    $_COOKIE = $_GET;
+} else if (!isset($_GET['recordar']) && (isset($_GET['user']) || isset($_GET['pass']))) {
+    setcookie('user', "");
+    setcookie('pass', "");
+    setcookie('recordar', "");
+    unset($_COOKIE);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,15 +31,15 @@
         <i class="fa-sharp fa-solid fa-right-to-bracket login-icon fa-5x"></i>
         <form method="GET" action="">
             <div class="form-outline mb-4">
-            <label class="form-label">Usuario</label>
-                <input type="text" id="form1Example1" name="user" class="form-control" value="<?php echo(isset($_COOKIE["user"])?$_COOKIE["user"]:""); ?>" />
+                <label class="form-label">Usuario</label>
+                <input type="text" id="form1Example1" name="user" class="form-control" value="<?php echo (isset($_COOKIE["user"]) ? $_COOKIE["user"] : ""); ?>" />
             </div>
             <div class="form-outline mb-4">
-            <label class="form-label">Contraseña</label>
-                <input type="password" id="form1Example2" name="pass" class="form-control" value="<?php echo(isset($_COOKIE["pass"])?$_COOKIE["pass"]:""); ?>"/>
+                <label class="form-label">Contraseña</label>
+                <input type="password" id="form1Example2" name="pass" class="form-control" value="<?php echo (isset($_COOKIE["pass"]) ? $_COOKIE["pass"] : ""); ?>" />
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="recordar" value="SI" id="flexSwitchCheckDefault" <?php echo(isset($_COOKIE["recordar"])?$_COOKIE["recordar"]:$checked ); ?>>
+                <input class="form-check-input" type="checkbox" name="recordar" value="SI" id="flexSwitchCheckDefault" <?php echo (isset($_COOKIE["recordar"]) ? "checked" : ""); ?>>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Recordar</label>
             </div>
             <div class="row mb-4">
